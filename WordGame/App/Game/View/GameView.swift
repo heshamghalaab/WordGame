@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct GameView: View {
+    
+    private let viewModel: GameViewModel
+    
+    init(viewModel: GameViewModel = GameViewModel()) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack {
             HStack {
