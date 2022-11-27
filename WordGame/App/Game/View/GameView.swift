@@ -150,7 +150,7 @@ struct GameView: View {
             .padding(.vertical)
             .frame(maxWidth: .infinity)
             .background(Color.white)
-            .scaleEffect(viewModelAdapter.state.showGameEndedDialogue ? 1 : 0)
+            .scaleEffect(viewModelAdapter.state.showGameEndedDialogue ? 1 : 0.1)
             .offset(y: viewModelAdapter.state.showGameEndedDialogue ? 0 : 500)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
