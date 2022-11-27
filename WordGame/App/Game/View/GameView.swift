@@ -17,10 +17,13 @@ struct GameView: View {
         let englishText: String
         let counter: Int
         let progress: Double
+        let showGameEndedDialogue: Bool
     }
     
     enum Action {
         case attempt(Attempt)
+        case restartGame
+        case closeApp
     }
     
     private var viewModelAdapter: ViewModelAdapter<ViewState, Action>
@@ -30,64 +33,125 @@ struct GameView: View {
     }
     
     var body: some View {
-        
         WithObservableViewModel(viewModelAdapter) { vm in
-            VStack {
-                HStack {
-                    ZStack {
-                        CircularProgressView(progress: vm.viewState.progress)
-                        Text("\(vm.viewState.counter)")
-                            .font(.system(size: 10))
-                    }.frame(width: 25, height: 25)
+            ZStack {
+                VStack {
+                    topView
                     Spacer()
-                    VStack(alignment: .trailing) {
-                        Text(vm.viewState.correctAttemptsCountText)
-                            .fontWeight(.bold)
-                        Text(vm.viewState.wrongAttemptsCountText)
-                            .fontWeight(.bold)
-                    }
-                }.padding(.horizontal, 16)
-                
-                Spacer()
-                
-                
-                VStack(alignment: .center) {
-                    Text(vm.viewState.spanishText)
-                        .font(.largeTitle)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(nil)
-                    Text(vm.viewState.englishText)
-                        .font(.title2)
-                        .lineLimit(nil)
-                }.padding()
-                
-                Spacer()
-                HStack(spacing: 16) {
-                    Button {
-                        vm.send(.attempt(.correct))
-                    } label: {
-                        Text("Correct")
-                            .frame(maxWidth: .infinity, maxHeight: 44)
-                            .foregroundColor(.white)
-                            .background(Color.green)
-                            .cornerRadius(8)
-                    }
-
-                    Button {
-                        vm.send(.attempt(.wrong))
-                    } label: {
-                        Text("Wrong")
-                            .frame(maxWidth: .infinity, maxHeight: 44)
-                            .foregroundColor(.white)
-                            .background(Color.red)
-                            .cornerRadius(8)
-                    }
+                    wordView.padding()
+                    Spacer()
+                    bottomView.padding(.horizontal, 16)
                 }
-                .padding(.horizontal, 16)
+                .blur(radius: vm.viewState.showGameEndedDialogue ? 10 : 0)
+                if vm.viewState.showGameEndedDialogue {
+                    withAnimation {
+                        dialogueView
+                    }    
+                }
             }
         }
     }
+    
+    var topView: some View {
+        HStack {
+            ZStack {
+                CircularProgressView(progress: viewModelAdapter.state.progress)
+                Text("\(viewModelAdapter.state.counter)").font(.system(size: 10))
+            }.frame(width: 25, height: 25)
+            Spacer()
+            VStack(alignment: .trailing) {
+                Text(viewModelAdapter.state.correctAttemptsCountText)
+                    .fontWeight(.bold)
+                Text(viewModelAdapter.state.wrongAttemptsCountText)
+                    .fontWeight(.bold)
+            }
+        }.padding(.horizontal, 16)
+    }
+    
+    var wordView: some View {
+        VStack(alignment: .center) {
+            Text(viewModelAdapter.state.spanishText)
+                .font(.largeTitle)
+                .multilineTextAlignment(.center)
+                .lineLimit(nil)
+            Text(viewModelAdapter.state.englishText)
+                .font(.title2)
+                .lineLimit(nil)
+        }.background(Color.yellow)
+    }
+    
+    var bottomView: some View {
+        HStack(spacing: 16) {
+            Button {
+                viewModelAdapter.send(.attempt(.correct))
+            } label: {
+                Text("Correct")
+                    .frame(maxWidth: .infinity, maxHeight: 44)
+                    .foregroundColor(.white)
+                    .background(Color.green)
+                    .cornerRadius(8)
+            }
+            Button {
+                viewModelAdapter.send(.attempt(.wrong))
+            } label: {
+                Text("Wrong")
+                    .frame(maxWidth: .infinity, maxHeight: 44)
+                    .foregroundColor(.white)
+                    .background(Color.red)
+                    .cornerRadius(8)
+            }
+        }
+    }
+    
+    var dialogueView: some View {
+        
+        VStack {
+            Spacer()
+            
+            VStack {
+                Text("Game Ended")
+                    .font(.largeTitle)
+                    
+                Text(viewModelAdapter.state.correctAttemptsCountText)
+                    .font(.title)
+                    
+                Text(viewModelAdapter.state.wrongAttemptsCountText)
+                    .font(.title)
+                
+                HStack {
+                    Button {
+                        viewModelAdapter.send(.closeApp)
+                    } label: {
+                        Text("Close App")
+                            .frame(maxWidth: .infinity, maxHeight: 44)
+                            .foregroundColor(.white)
+                            .background(Color.gray)
+                            .cornerRadius(8)
+                    }
+                    
+                    Button {
+                        viewModelAdapter.send(.restartGame)
+                    } label: {
+                        Text("Restart Game")
+                            .frame(maxWidth: .infinity, maxHeight: 44)
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(8)
+                    }
+                }
+                .padding(.all)
+            }
+            .padding(.vertical)
+            .frame(maxWidth: .infinity)
+            .background(Color.white)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.opacity(0.8))
+        .edgesIgnoringSafeArea(.all)
+    }
 }
+
+
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
@@ -103,7 +167,8 @@ extension GameView.ViewState {
             spanishText: "",
             englishText: "",
             counter: 0,
-            progress: 0
+            progress: 0,
+            showGameEndedDialogue: false
         )
     }
 }

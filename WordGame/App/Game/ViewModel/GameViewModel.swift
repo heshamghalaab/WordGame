@@ -30,9 +30,10 @@ final class GameViewModel: ViewModel {
     }
     
     private var viewStatePublisher: AnyPublisher<GameView.ViewState, Never> {
-        Publishers.CombineLatest4(
+        Publishers.CombineLatest5(
             gameEngine.outputs.word,
             gameEngine.outputs.counter,
+            gameEngine.outputs.gameEnded,
             Just(gameEngine.outputs.rules),
             Just(gameEngine.outputs.score)
         )
@@ -44,21 +45,25 @@ final class GameViewModel: ViewModel {
         switch action {
         case .attempt(let attempt):
             gameEngine.inputs.gamerDidChoose(attempt: attempt)
+        case .restartGame:
+            gameEngine.inputs.restartGame()
+        case .closeApp:
+            exit(0)
         }
     }
 }
 
 extension GameViewModel {
-    func toViewState(word: Word?, counter: Int, rules: Rules, score: Score) -> GameView.ViewState {
+    func toViewState(word: Word?, counter: Int, gameEnded: Bool, rules: Rules, score: Score) -> GameView.ViewState {
         let progress = Double(counter) / Double(rules.timeLimit)
-        
         return .init(
             correctAttemptsCountText: "Correct attempts: \(score.correctAttempts)",
             wrongAttemptsCountText: "Wrong attempts: \(score.wrongAttempts)",
             spanishText: word?.textSpanish ?? "",
             englishText: word?.textEnglish ?? "",
             counter: counter,
-            progress: progress
+            progress: progress,
+            showGameEndedDialogue: gameEnded
         )
     }
 }

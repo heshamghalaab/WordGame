@@ -11,6 +11,7 @@ import Combine
 protocol GameEngineInputs {
     func startGame()
     func gamerDidChoose(attempt: Attempt)
+    func restartGame()
 }
 
 protocol GameEngineOutputs {
@@ -25,6 +26,9 @@ protocol GameEngineOutputs {
     
     /// The Rules of the game
     var rules: Rules { get }
+    
+    /// A game ended Flag will be triggered when one of the rules is not matched
+    var gameEnded: CurrentValueSubject<Bool, Never> { get }
 }
 
 protocol GameEngineType {
@@ -70,6 +74,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     var score: Score = Score()
     var rules: Rules
     var counter = CurrentValueSubject<Int, Never>(0)
+    var gameEnded = CurrentValueSubject<Bool, Never>(false)
     
     // MARK: Inputs
     
@@ -84,6 +89,14 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
             selectedAttempt: attempt
         )
         loadNextQuestion()
+    }
+    
+    func restartGame() {
+        game = Game()
+        score.wrongAttempts = 0
+        score.correctAttempts = 0
+        gameEnded.send(false)
+        loadWords()
     }
 }
 
@@ -158,6 +171,7 @@ private extension GameEngine {
         // Beside Hidding the last question Sending nil will also make the
         // viewModel receive the final update of the score
         word.send(nil)
+        gameEnded.send(true)
     }
 }
 
