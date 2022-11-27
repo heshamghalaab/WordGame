@@ -21,6 +21,7 @@
 		23F6B7382933530D000C00ED /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B7372933530D000C00ED /* GameEngine.swift */; };
 		23F6B73B293360FC000C00ED /* ViewModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B73A293360FC000C00ED /* ViewModelAdapter.swift */; };
 		23F6B73D29336111000C00ED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B73C29336111000C00ED /* ViewModel.swift */; };
+		23F6B74229336292000C00ED /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 23F6B74129336292000C00ED /* CombineSchedulers */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F6B74229336292000C00ED /* CombineSchedulers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +203,9 @@
 			dependencies = (
 			);
 			name = WordGame;
+			packageProductDependencies = (
+				23F6B74129336292000C00ED /* CombineSchedulers */,
+			);
 			productName = WordGame;
 			productReference = 23F6B7092932BC1B000C00ED /* WordGame.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 23F6B7002932BC1B000C00ED;
+			packageReferences = (
+				23F6B74029336292000C00ED /* XCRemoteSwiftPackageReference "combine-schedulers" */,
+			);
 			productRefGroup = 23F6B70A2932BC1B000C00ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -467,6 +475,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23F6B74029336292000C00ED /* XCRemoteSwiftPackageReference "combine-schedulers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/combine-schedulers";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23F6B74129336292000C00ED /* CombineSchedulers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23F6B74029336292000C00ED /* XCRemoteSwiftPackageReference "combine-schedulers" */;
+			productName = CombineSchedulers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23F6B7012932BC1B000C00ED /* Project object */;
 }
