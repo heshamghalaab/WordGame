@@ -89,13 +89,9 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     
     /// Will Chech for the Rules in order to know if we should to proceed or not.
     func shouldProceedToNextQuestion() -> Bool {
-        // Currently we donot need the game to end we just need to restart it.
-        if game.current.wordIndex >= game.current.words.count {
-            // Restart Game
-            game.current.wordIndex = 0
-            game.current.words.shuffle()
-        }
-        return true
+        return game.current.wordIndex < rules.maximumNumberOfQuestion
+        && game.current.wordIndex < game.current.words.count
+        && score.wrongAttempts < rules.maximumNumberOfWrongAttempts
     }
         
     /// Will Load the Words from the Json File and After Completion it will load the next question.
@@ -106,6 +102,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
             .sink(receiveCompletion: { [weak self] _ in
                 self?.loadNextQuestion()
             }, receiveValue: { [weak self] words in
+                
                 self?.game.current.words = words.shuffled()
             })
             .store(in: &cancellables)
