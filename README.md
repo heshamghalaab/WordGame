@@ -20,6 +20,6 @@ The project is split into three milestones/deliverables.
 **Unit Testing:** `XCTest` is used for unit test.
 
 ## TODO List:
-- [ ] Game Logic.
+- [x] Game Logic.
 - [ ] Rules.
 - [ ] End of the game.
