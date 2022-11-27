@@ -98,8 +98,8 @@ struct GameView_Previews: PreviewProvider {
 extension GameView.ViewState {
     static var empty: GameView.ViewState {
         .init(
-            correctAttemptsCountText: "",
-            wrongAttemptsCountText: "",
+            correctAttemptsCountText: "Correct attempts: 0",
+            wrongAttemptsCountText: "Wrong attempts: 0",
             spanishText: "",
             englishText: "",
             counter: 0,

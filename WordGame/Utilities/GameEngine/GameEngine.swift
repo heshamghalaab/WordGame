@@ -155,6 +155,9 @@ private extension GameEngine {
     
     func endGame() {
         stopCounting()
+        // Beside Hidding the last question Sending nil will also make the
+        // viewModel receive the final update of the score
+        word.send(nil)
     }
 }
 

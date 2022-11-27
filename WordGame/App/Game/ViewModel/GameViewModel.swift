@@ -50,14 +50,13 @@ final class GameViewModel: ViewModel {
 
 extension GameViewModel {
     func toViewState(word: Word?, counter: Int, rules: Rules, score: Score) -> GameView.ViewState {
-        guard let word = word else { return .empty }
         let progress = Double(counter) / Double(rules.timeLimit)
         
         return .init(
             correctAttemptsCountText: "Correct attempts: \(score.correctAttempts)",
             wrongAttemptsCountText: "Wrong attempts: \(score.wrongAttempts)",
-            spanishText: word.textSpanish,
-            englishText: word.textEnglish,
+            spanishText: word?.textSpanish ?? "",
+            englishText: word?.textEnglish ?? "",
             counter: counter,
             progress: progress
         )
