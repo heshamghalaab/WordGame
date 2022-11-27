@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct GameView: View {
     
@@ -27,51 +28,53 @@ struct GameView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                VStack(alignment: .trailing) {
-                    Text("Correct attempts: 0")
-                        .fontWeight(.bold)
-                    Text("Wrong attempts: 0")
-                        .fontWeight(.bold)
-                }
-            }.padding(.horizontal, 16)
-            
-            Spacer()
-            
-            VStack(alignment: .center) {
-                Text("fiambrera")
-                    .font(.largeTitle)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(nil)
-                Text("lunch box")
-                    .font(.title2)
-                    .lineLimit(nil)
-            }.padding()
-            
-            Spacer()
-            HStack(spacing: 16) {
-                Button {
-                    print("Correct")
-                } label: {
-                    Text("Correct")
-                        .frame(maxWidth: .infinity, maxHeight: 44)
-                        .foregroundColor(.white)
-                        .background(Color.green)
-                        .cornerRadius(8)
-                }
+        WithObservableViewModel(viewModelAdapter) { vm in
+            VStack {
+                HStack {
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                        Text(vm.viewState.correctAttemptsCountText)
+                            .fontWeight(.bold)
+                        Text(vm.viewState.wrongAttemptsCountText)
+                            .fontWeight(.bold)
+                    }
+                }.padding(.horizontal, 16)
                 
-                Button {
-                    print("Wrong")
-                } label: {
-                    Text("Wrong")
-                        .frame(maxWidth: .infinity, maxHeight: 44)
-                        .foregroundColor(.white)
-                        .background(Color.red)
-                        .cornerRadius(8)
-                }
-            }.padding(.horizontal, 16)
+                Spacer()
+                
+                VStack(alignment: .center) {
+                    Text(vm.viewState.spanishText)
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(nil)
+                    Text(vm.viewState.englishText)
+                        .font(.title2)
+                        .lineLimit(nil)
+                }.padding()
+                
+                Spacer()
+                HStack(spacing: 16) {
+                    Button {
+                        vm.send(.attempt(.correct))
+                    } label: {
+                        Text("Correct")
+                            .frame(maxWidth: .infinity, maxHeight: 44)
+                            .foregroundColor(.white)
+                            .background(Color.green)
+                            .cornerRadius(8)
+                    }
+
+                    Button {
+                        vm.send(.attempt(.wrong))
+                    } label: {
+                        Text("Wrong")
+                            .frame(maxWidth: .infinity, maxHeight: 44)
+                            .foregroundColor(.white)
+                            .background(Color.red)
+                            .cornerRadius(8)
+                    }
+                }.padding(.horizontal, 16)
+            }
         }
     }
 }

@@ -22,6 +22,8 @@
 		23F6B73B293360FC000C00ED /* ViewModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B73A293360FC000C00ED /* ViewModelAdapter.swift */; };
 		23F6B73D29336111000C00ED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B73C29336111000C00ED /* ViewModel.swift */; };
 		23F6B74229336292000C00ED /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 23F6B74129336292000C00ED /* CombineSchedulers */; };
+		23F6B744293362BE000C00ED /* ObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B743293362BE000C00ED /* ObservableViewModel.swift */; };
+		23F6B747293362EA000C00ED /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B746293362EA000C00ED /* Combine+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		23F6B7372933530D000C00ED /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		23F6B73A293360FC000C00ED /* ViewModelAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAdapter.swift; sourceTree = "<group>"; };
 		23F6B73C29336111000C00ED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		23F6B743293362BE000C00ED /* ObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModel.swift; sourceTree = "<group>"; };
+		23F6B746293362EA000C00ED /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +158,7 @@
 			children = (
 				23F6B73229335299000C00ED /* GameEngine */,
 				23F6B72A2932C313000C00ED /* Providers */,
+				23F6B745293362DA000C00ED /* Extensions */,
 				23F6B739293360EC000C00ED /* Core */,
 			);
 			path = Utilities;
@@ -183,8 +188,17 @@
 			children = (
 				23F6B73A293360FC000C00ED /* ViewModelAdapter.swift */,
 				23F6B73C29336111000C00ED /* ViewModel.swift */,
+				23F6B743293362BE000C00ED /* ObservableViewModel.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		23F6B745293362DA000C00ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B746293362EA000C00ED /* Combine+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +281,10 @@
 				23F6B73B293360FC000C00ED /* ViewModelAdapter.swift in Sources */,
 				23F6B734293352A6000C00ED /* Score.swift in Sources */,
 				23F6B736293352C1000C00ED /* Rules.swift in Sources */,
+				23F6B747293362EA000C00ED /* Combine+Extensions.swift in Sources */,
 				23F6B73D29336111000C00ED /* ViewModel.swift in Sources */,
 				23F6B72E2932C35B000C00ED /* WordsProvider.swift in Sources */,
+				23F6B744293362BE000C00ED /* ObservableViewModel.swift in Sources */,
 				23F6B72C2932C326000C00ED /* LocalDataProvider.swift in Sources */,
 				23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */,
 				23F6B7262932C261000C00ED /* GameView.swift in Sources */,
