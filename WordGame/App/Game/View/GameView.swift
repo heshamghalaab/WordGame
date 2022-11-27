@@ -15,8 +15,8 @@ struct GameView: View {
         let wrongAttemptsCountText: String
         let spanishText: String
         let englishText: String
-        let counter: Int
-        let progress: Double
+        let counter: Double
+        let animationProgress: Double
         let showGameEndedDialogue: Bool
     }
     
@@ -55,8 +55,8 @@ struct GameView: View {
     var topView: some View {
         HStack {
             ZStack {
-                CircularProgressView(progress: viewModelAdapter.state.progress)
-                Text("\(viewModelAdapter.state.counter)").font(.system(size: 10))
+                CircularProgressView(progress: viewModelAdapter.state.animationProgress)
+                Text(String(format: "%.1f", viewModelAdapter.state.counter)).font(.system(size: 10))
             }.frame(width: 25, height: 25)
             Spacer()
             VStack(alignment: .trailing) {
@@ -74,10 +74,18 @@ struct GameView: View {
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
                 .lineLimit(nil)
+                .offset(y: spanishTextYOffset)
+                .animation(.easeInOut, value: viewModelAdapter.state.animationProgress)
+            
             Text(viewModelAdapter.state.englishText)
                 .font(.title2)
+                .multilineTextAlignment(.center)
                 .lineLimit(nil)
-        }.background(Color.yellow)
+        }
+    }
+    
+    var spanishTextYOffset: CGFloat {
+        return viewModelAdapter.state.animationProgress >= 1 ? -100 : (viewModelAdapter.state.animationProgress-1) * 100
     }
     
     var bottomView: some View {
@@ -167,7 +175,7 @@ extension GameView.ViewState {
             spanishText: "",
             englishText: "",
             counter: 0,
-            progress: 0,
+            animationProgress: 0,
             showGameEndedDialogue: false
         )
     }

@@ -22,7 +22,7 @@ protocol GameEngineOutputs {
     var score: Score { get }
     
     /// A Counter for the question
-    var counter: CurrentValueSubject<Int, Never> { get }
+    var counter: CurrentValueSubject<Double, Never> { get }
     
     /// The Rules of the game
     var rules: Rules { get }
@@ -60,7 +60,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     init(
         wordsProvider: WordsProvidable = WordsProvider(),
         rules: Rules = Rules(),
-        timer: TimerType = Timer.publish(every: 1, on: .main, in: .default)
+        timer: TimerType = Timer.publish(every: 0.1, on: .main, in: .default)
     ) {
         self.wordsProvider = wordsProvider
         self.rules = rules
@@ -73,7 +73,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     var word = CurrentValueSubject<Word?, Never>(nil)
     var score: Score = Score()
     var rules: Rules
-    var counter = CurrentValueSubject<Int, Never>(0)
+    var counter = CurrentValueSubject<Double, Never>(0)
     var gameEnded = CurrentValueSubject<Bool, Never>(false)
     
     // MARK: Inputs
@@ -183,7 +183,7 @@ private extension GameEngine {
     func startCounting() {
         timerCancellable = timer
             .timerPublisher()
-            .scan(0) { counter, _ in counter + 1 }
+            .scan(0, { counter, _ in counter + 0.1 })
             .sink { [weak self] counter in
                 guard let self = self else { return }
                 self.counter.value = counter

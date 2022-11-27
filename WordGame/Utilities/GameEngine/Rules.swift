@@ -11,7 +11,7 @@ struct Rules {
     let probabilityOfCorrectness: Int
     let maximumNumberOfQuestion: Int
     let maximumNumberOfWrongAttempts: Int
-    let timeLimit: Int
+    let timeLimit: Double
     
     /// - Parameters:
     ///   - probabilityOfCorrectness: Will accept only the range from 0...100 probabilityOfCorrectness Else will add the **default value == 25**.
@@ -22,7 +22,7 @@ struct Rules {
         probabilityOfCorrectness: Int = 25,
         maximumNumberOfQuestion: Int = 15,
         maximumNumberOfWrongAttempts: Int = 3,
-        timeLimit: Int = 5
+        timeLimit: Double = 5.0
     ) {
         self.maximumNumberOfQuestion = maximumNumberOfQuestion
         self.maximumNumberOfWrongAttempts = maximumNumberOfWrongAttempts
