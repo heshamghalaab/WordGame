@@ -21,5 +21,5 @@ The project is split into three milestones/deliverables.
 
 ## TODO List:
 - [x] Game Logic.
-- [ ] Rules.
+- [x] Rules.
 - [ ] End of the game.
