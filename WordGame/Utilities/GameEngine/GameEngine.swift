@@ -126,7 +126,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     private func nextWord() -> Word {
         var word = game.current.words[game.current.wordIndex]
         if game.current.attempt == .wrong {
-            word.textSpa = game.current.words[randomSpanishIndex].textSpa
+            word.textSpanish = game.current.words[randomSpanishIndex].textSpanish
         }
         return word
     }

@@ -8,11 +8,11 @@
 import Foundation
 
 struct Word: Decodable {
-    let textEng: String
-    var textSpa: String
+    let textEnglish: String
+    var textSpanish: String
     
     enum CodingKeys: String, CodingKey {
-        case textEng = "text_eng"
-        case textSpa = "text_spa"
+        case textEnglish = "text_eng"
+        case textSpanish = "text_spa"
     }
 }

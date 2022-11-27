@@ -35,7 +35,6 @@ final class GameViewModel: ViewModel {
             Just(gameEngine.outputs.score)
         )
         .map(toViewState)
-        .print("view State Publisher")
         .eraseToAnyPublisher()
     }
     
@@ -53,8 +52,8 @@ extension GameViewModel {
         return .init(
             correctAttemptsCountText: "Correct attempts: \(score.correctAttempts)",
             wrongAttemptsCountText: "Wrong attempts: \(score.wrongAttempts)",
-            spanishText: word.textSpa,
-            englishText: word.textEng
+            spanishText: word.textSpanish,
+            englishText: word.textEnglish
         )
     }
 }
