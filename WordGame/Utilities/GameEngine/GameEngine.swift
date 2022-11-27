@@ -19,6 +19,12 @@ protocol GameEngineOutputs {
     
     /// An Object for the score according the user Progress.
     var score: Score { get }
+    
+    /// A Counter for the question
+    var counter: CurrentValueSubject<Int, Never> { get }
+    
+    /// The Rules of the game
+    var rules: Rules { get }
 }
 
 protocol GameEngineType {
@@ -43,7 +49,6 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     
     private let wordsProvider: WordsProvidable
     private var game: Game = Game()
-    private var rules: Rules
     private let timer: TimerType
     private var cancellables = Set<AnyCancellable>()
     private var timerCancellable: AnyCancellable?
@@ -63,6 +68,8 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     
     var word = CurrentValueSubject<Word?, Never>(nil)
     var score: Score = Score()
+    var rules: Rules
+    var counter = CurrentValueSubject<Int, Never>(0)
     
     // MARK: Inputs
     
@@ -88,7 +95,8 @@ private extension GameEngine {
     func loadNextQuestion() {
         game.current.wordIndex += 1
         guard shouldProceedToNextQuestion() else {
-            exit(0)
+            endGame()
+            return
         }
         setCurrentAttempt()
         word.value = nextWord()
@@ -110,7 +118,6 @@ private extension GameEngine {
             .sink(receiveCompletion: { [weak self] _ in
                 self?.loadNextQuestion()
             }, receiveValue: { [weak self] words in
-                
                 self?.game.current.words = words.shuffled()
             })
             .store(in: &cancellables)
@@ -145,6 +152,10 @@ private extension GameEngine {
         // Then we will choose a random rande from the two ranges to select the random Int from them.
         return Bool.random() ? Int.random(in: range) : Int.random(in: anotherRange)
     }
+    
+    func endGame() {
+        stopCounting()
+    }
 }
 
 // MARK: Timer Logic
@@ -158,6 +169,7 @@ private extension GameEngine {
             .scan(0) { counter, _ in counter + 1 }
             .sink { [weak self] counter in
                 guard let self = self else { return }
+                self.counter.value = counter
                 if counter >= self.rules.timeLimit {
                     self.markAttemptAsWrong()
                 }

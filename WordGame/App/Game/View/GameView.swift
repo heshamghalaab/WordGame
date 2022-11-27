@@ -15,6 +15,8 @@ struct GameView: View {
         let wrongAttemptsCountText: String
         let spanishText: String
         let englishText: String
+        let counter: Int
+        let progress: Double
     }
     
     enum Action {
@@ -28,9 +30,15 @@ struct GameView: View {
     }
     
     var body: some View {
+        
         WithObservableViewModel(viewModelAdapter) { vm in
             VStack {
                 HStack {
+                    ZStack {
+                        CircularProgressView(progress: vm.viewState.progress)
+                        Text("\(vm.viewState.counter)")
+                            .font(.system(size: 10))
+                    }.frame(width: 25, height: 25)
                     Spacer()
                     VStack(alignment: .trailing) {
                         Text(vm.viewState.correctAttemptsCountText)
@@ -41,6 +49,7 @@ struct GameView: View {
                 }.padding(.horizontal, 16)
                 
                 Spacer()
+                
                 
                 VStack(alignment: .center) {
                     Text(vm.viewState.spanishText)
@@ -73,7 +82,8 @@ struct GameView: View {
                             .background(Color.red)
                             .cornerRadius(8)
                     }
-                }.padding(.horizontal, 16)
+                }
+                .padding(.horizontal, 16)
             }
         }
     }
@@ -91,7 +101,9 @@ extension GameView.ViewState {
             correctAttemptsCountText: "",
             wrongAttemptsCountText: "",
             spanishText: "",
-            englishText: ""
+            englishText: "",
+            counter: 0,
+            progress: 0
         )
     }
 }
