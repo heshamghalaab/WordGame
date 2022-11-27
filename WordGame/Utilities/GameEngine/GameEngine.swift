@@ -44,15 +44,18 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     private let wordsProvider: WordsProvidable
     private var game: Game = Game()
     private var rules: Rules
+    private let timer: TimerType
     private var cancellables = Set<AnyCancellable>()
     private var timerCancellable: AnyCancellable?
     
     init(
         wordsProvider: WordsProvidable = WordsProvider(),
-        rules: Rules = Rules()
+        rules: Rules = Rules(),
+        timer: TimerType = Timer.publish(every: 1, on: .main, in: .default)
     ) {
         self.wordsProvider = wordsProvider
         self.rules = rules
+        self.timer = timer
         self.startGame()
     }
     
@@ -68,14 +71,18 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     }
     
     func gamerDidChoose(attempt: Attempt) {
+        stopCounting()
         score.calculateScore(
             currentAttempt: game.current.attempt,
             selectedAttempt: attempt
         )
         loadNextQuestion()
     }
-    
-    // MARK: Logic
+}
+
+// MARK: Logic
+
+private extension GameEngine {
 
     /// Will do the needed changes to load the next word for the user
     func loadNextQuestion() {
@@ -85,6 +92,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
         }
         setCurrentAttempt()
         word.value = nextWord()
+        startCounting()
     }
     
     /// Will Chech for the Rules in order to know if we should to proceed or not.
@@ -109,7 +117,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     }
     
     /// Will Set the current Attempt from the probability of correctness rule which is by default = 25%
-    private func setCurrentAttempt() {
+    func setCurrentAttempt() {
         let randomPercentage = Int.random(in: 0...100)
         switch randomPercentage {
         case 0..<rules.probabilityOfCorrectness: game.current.attempt = .correct
@@ -120,7 +128,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     
     /// The Aim of this function is to change the text spanish to a random text if the current attempt is wrong.
     /// - Returns: The Current word if current attempt is correct, else will return the current word with a random wrong spanish text.
-    private func nextWord() -> Word {
+    func nextWord() -> Word {
         var word = game.current.words[game.current.wordIndex]
         if game.current.attempt == .wrong {
             word.textSpanish = game.current.words[randomSpanishIndex].textSpanish
@@ -136,5 +144,35 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
         let anotherRange = game.current.wordIndex..<game.current.words.count
         // Then we will choose a random rande from the two ranges to select the random Int from them.
         return Bool.random() ? Int.random(in: range) : Int.random(in: anotherRange)
+    }
+}
+
+// MARK: Timer Logic
+
+private extension GameEngine {
+    
+    /// Start Counting with 1 second interval, if the counter exceeds the time limit we will mark it as wrong answer.
+    func startCounting() {
+        timerCancellable = timer
+            .timerPublisher()
+            .scan(0) { counter, _ in counter + 1 }
+            .sink { [weak self] counter in
+                guard let self = self else { return }
+                if counter >= self.rules.timeLimit {
+                    self.markAttemptAsWrong()
+                }
+            }
+    }
+    
+    /// Force Attempt to be wrong so we will toggle the value of the current attempt and acting like the user choose wrong attempt.
+    func markAttemptAsWrong(){
+        stopCounting()
+        let attempt: Attempt = game.current.attempt == .correct ? .wrong : .correct
+        self.gamerDidChoose(attempt: attempt)
+    }
+    
+    /// Stop Counting by cancelling the timer cancellable.
+    func stopCounting() {
+        timerCancellable?.cancel()
     }
 }

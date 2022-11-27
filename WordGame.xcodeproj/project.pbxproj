@@ -24,6 +24,7 @@
 		23F6B74229336292000C00ED /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 23F6B74129336292000C00ED /* CombineSchedulers */; };
 		23F6B744293362BE000C00ED /* ObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B743293362BE000C00ED /* ObservableViewModel.swift */; };
 		23F6B747293362EA000C00ED /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B746293362EA000C00ED /* Combine+Extensions.swift */; };
+		23F6B74929336B3C000C00ED /* TimerPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B74829336B3C000C00ED /* TimerPublisher+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		23F6B73C29336111000C00ED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		23F6B743293362BE000C00ED /* ObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModel.swift; sourceTree = "<group>"; };
 		23F6B746293362EA000C00ED /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
+		23F6B74829336B3C000C00ED /* TimerPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerPublisher+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				23F6B746293362EA000C00ED /* Combine+Extensions.swift */,
+				23F6B74829336B3C000C00ED /* TimerPublisher+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				23F6B72C2932C326000C00ED /* LocalDataProvider.swift in Sources */,
 				23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */,
 				23F6B7262932C261000C00ED /* GameView.swift in Sources */,
+				23F6B74929336B3C000C00ED /* TimerPublisher+Extension.swift in Sources */,
 				23F6B7282932C26E000C00ED /* GameViewModel.swift in Sources */,
 				23F6B7382933530D000C00ED /* GameEngine.swift in Sources */,
 				23F6B7242932C246000C00ED /* Word.swift in Sources */,
