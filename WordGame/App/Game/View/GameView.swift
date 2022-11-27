@@ -36,23 +36,21 @@ struct GameView: View {
         WithObservableViewModel(viewModelAdapter) { vm in
             ZStack {
                 VStack {
-                    topView
+                    headerView
                     Spacer()
                     wordView.padding()
                     Spacer()
-                    bottomView.padding(.horizontal, 16)
+                    footerView.padding(.horizontal, 16)
                 }
                 .blur(radius: vm.viewState.showGameEndedDialogue ? 10 : 0)
-                if vm.viewState.showGameEndedDialogue {
-                    withAnimation {
-                        dialogueView
-                    }    
-                }
+                .animation(.spring(), value: viewModelAdapter.state.showGameEndedDialogue)
+                
+                dialogueView
             }
         }
     }
     
-    var topView: some View {
+    var headerView: some View {
         HStack {
             ZStack {
                 CircularProgressView(progress: viewModelAdapter.state.animationProgress)
@@ -88,7 +86,7 @@ struct GameView: View {
         return viewModelAdapter.state.animationProgress >= 1 ? -100 : (viewModelAdapter.state.animationProgress-1) * 100
     }
     
-    var bottomView: some View {
+    var footerView: some View {
         HStack(spacing: 16) {
             Button {
                 viewModelAdapter.send(.attempt(.correct))
@@ -152,10 +150,13 @@ struct GameView: View {
             .padding(.vertical)
             .frame(maxWidth: .infinity)
             .background(Color.white)
+            .scaleEffect(viewModelAdapter.state.showGameEndedDialogue ? 1 : 0)
+            .offset(y: viewModelAdapter.state.showGameEndedDialogue ? 0 : 500)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.opacity(0.8))
+        .background(viewModelAdapter.state.showGameEndedDialogue ? Color.black.opacity(0.8) : Color.clear)
         .edgesIgnoringSafeArea(.all)
+        .animation(.spring(), value: viewModelAdapter.state.showGameEndedDialogue)
     }
 }
 
