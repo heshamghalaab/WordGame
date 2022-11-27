@@ -8,17 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B70C2932BC1B000C00ED /* WordGameApp.swift */; };
-		23F6B70F2932BC1B000C00ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B70E2932BC1B000C00ED /* ContentView.swift */; };
 		23F6B7112932BC1D000C00ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7102932BC1D000C00ED /* Assets.xcassets */; };
 		23F6B7142932BC1D000C00ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7132932BC1D000C00ED /* Preview Assets.xcassets */; };
+		23F6B71C2932C1DB000C00ED /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B71B2932C1DB000C00ED /* words.json */; };
+		23F6B7242932C246000C00ED /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B7232932C246000C00ED /* Word.swift */; };
+		23F6B7262932C261000C00ED /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B7252932C261000C00ED /* GameView.swift */; };
+		23F6B7282932C26E000C00ED /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B7272932C26E000C00ED /* GameViewModel.swift */; };
+		23F6B72C2932C326000C00ED /* LocalDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B72B2932C326000C00ED /* LocalDataProvider.swift */; };
+		23F6B72E2932C35B000C00ED /* WordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B72D2932C35B000C00ED /* WordsProvider.swift */; };
+		23F6B734293352A6000C00ED /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B733293352A6000C00ED /* Score.swift */; };
+		23F6B736293352C1000C00ED /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B735293352C1000C00ED /* Rules.swift */; };
+		23F6B7382933530D000C00ED /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B7372933530D000C00ED /* GameEngine.swift */; };
+		23F6B73B293360FC000C00ED /* ViewModelAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B73A293360FC000C00ED /* ViewModelAdapter.swift */; };
+		23F6B73D29336111000C00ED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B73C29336111000C00ED /* ViewModel.swift */; };
+		23F6B74229336292000C00ED /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 23F6B74129336292000C00ED /* CombineSchedulers */; };
+		23F6B744293362BE000C00ED /* ObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B743293362BE000C00ED /* ObservableViewModel.swift */; };
+		23F6B747293362EA000C00ED /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B746293362EA000C00ED /* Combine+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23F6B7092932BC1B000C00ED /* WordGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F6B70C2932BC1B000C00ED /* WordGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameApp.swift; sourceTree = "<group>"; };
-		23F6B70E2932BC1B000C00ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		23F6B7102932BC1D000C00ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23F6B7132932BC1D000C00ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		23F6B71B2932C1DB000C00ED /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		23F6B7232932C246000C00ED /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		23F6B7252932C261000C00ED /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		23F6B7272932C26E000C00ED /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		23F6B72B2932C326000C00ED /* LocalDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataProvider.swift; sourceTree = "<group>"; };
+		23F6B72D2932C35B000C00ED /* WordsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsProvider.swift; sourceTree = "<group>"; };
+		23F6B733293352A6000C00ED /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		23F6B735293352C1000C00ED /* Rules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
+		23F6B7372933530D000C00ED /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
+		23F6B73A293360FC000C00ED /* ViewModelAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAdapter.swift; sourceTree = "<group>"; };
+		23F6B73C29336111000C00ED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		23F6B743293362BE000C00ED /* ObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModel.swift; sourceTree = "<group>"; };
+		23F6B746293362EA000C00ED /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F6B74229336292000C00ED /* CombineSchedulers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,9 +77,10 @@
 		23F6B70B2932BC1B000C00ED /* WordGame */ = {
 			isa = PBXGroup;
 			children = (
-				23F6B70C2932BC1B000C00ED /* WordGameApp.swift */,
-				23F6B70E2932BC1B000C00ED /* ContentView.swift */,
-				23F6B7102932BC1D000C00ED /* Assets.xcassets */,
+				23F6B71A2932C1AD000C00ED /* Resources */,
+				23F6B7292932C307000C00ED /* Utilities */,
+				23F6B71D2932C1FD000C00ED /* Startup */,
+				23F6B71E2932C211000C00ED /* App */,
 				23F6B7122932BC1D000C00ED /* Preview Content */,
 			);
 			path = WordGame;
@@ -65,6 +92,113 @@
 				23F6B7132932BC1D000C00ED /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		23F6B71A2932C1AD000C00ED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B71B2932C1DB000C00ED /* words.json */,
+				23F6B7102932BC1D000C00ED /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		23F6B71D2932C1FD000C00ED /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B70C2932BC1B000C00ED /* WordGameApp.swift */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		23F6B71E2932C211000C00ED /* App */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B71F2932C226000C00ED /* Game */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		23F6B71F2932C226000C00ED /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B7202932C22B000C00ED /* Model */,
+				23F6B7212932C230000C00ED /* View */,
+				23F6B7222932C234000C00ED /* ViewModel */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		23F6B7202932C22B000C00ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B7232932C246000C00ED /* Word.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23F6B7212932C230000C00ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B7252932C261000C00ED /* GameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		23F6B7222932C234000C00ED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B7272932C26E000C00ED /* GameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		23F6B7292932C307000C00ED /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B73229335299000C00ED /* GameEngine */,
+				23F6B72A2932C313000C00ED /* Providers */,
+				23F6B745293362DA000C00ED /* Extensions */,
+				23F6B739293360EC000C00ED /* Core */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		23F6B72A2932C313000C00ED /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B72B2932C326000C00ED /* LocalDataProvider.swift */,
+				23F6B72D2932C35B000C00ED /* WordsProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		23F6B73229335299000C00ED /* GameEngine */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B7372933530D000C00ED /* GameEngine.swift */,
+				23F6B735293352C1000C00ED /* Rules.swift */,
+				23F6B733293352A6000C00ED /* Score.swift */,
+			);
+			path = GameEngine;
+			sourceTree = "<group>";
+		};
+		23F6B739293360EC000C00ED /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B73A293360FC000C00ED /* ViewModelAdapter.swift */,
+				23F6B73C29336111000C00ED /* ViewModel.swift */,
+				23F6B743293362BE000C00ED /* ObservableViewModel.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		23F6B745293362DA000C00ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B746293362EA000C00ED /* Combine+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +217,9 @@
 			dependencies = (
 			);
 			name = WordGame;
+			packageProductDependencies = (
+				23F6B74129336292000C00ED /* CombineSchedulers */,
+			);
 			productName = WordGame;
 			productReference = 23F6B7092932BC1B000C00ED /* WordGame.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +248,9 @@
 				Base,
 			);
 			mainGroup = 23F6B7002932BC1B000C00ED;
+			packageReferences = (
+				23F6B74029336292000C00ED /* XCRemoteSwiftPackageReference "combine-schedulers" */,
+			);
 			productRefGroup = 23F6B70A2932BC1B000C00ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F6B71C2932C1DB000C00ED /* words.json in Resources */,
 				23F6B7142932BC1D000C00ED /* Preview Assets.xcassets in Resources */,
 				23F6B7112932BC1D000C00ED /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +278,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F6B70F2932BC1B000C00ED /* ContentView.swift in Sources */,
+				23F6B73B293360FC000C00ED /* ViewModelAdapter.swift in Sources */,
+				23F6B734293352A6000C00ED /* Score.swift in Sources */,
+				23F6B736293352C1000C00ED /* Rules.swift in Sources */,
+				23F6B747293362EA000C00ED /* Combine+Extensions.swift in Sources */,
+				23F6B73D29336111000C00ED /* ViewModel.swift in Sources */,
+				23F6B72E2932C35B000C00ED /* WordsProvider.swift in Sources */,
+				23F6B744293362BE000C00ED /* ObservableViewModel.swift in Sources */,
+				23F6B72C2932C326000C00ED /* LocalDataProvider.swift in Sources */,
 				23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */,
+				23F6B7262932C261000C00ED /* GameView.swift in Sources */,
+				23F6B7282932C26E000C00ED /* GameViewModel.swift in Sources */,
+				23F6B7382933530D000C00ED /* GameEngine.swift in Sources */,
+				23F6B7242932C246000C00ED /* Word.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -274,6 +426,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,6 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -337,6 +491,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		23F6B74029336292000C00ED /* XCRemoteSwiftPackageReference "combine-schedulers" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/combine-schedulers";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		23F6B74129336292000C00ED /* CombineSchedulers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 23F6B74029336292000C00ED /* XCRemoteSwiftPackageReference "combine-schedulers" */;
+			productName = CombineSchedulers;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23F6B7012932BC1B000C00ED /* Project object */;
 }
