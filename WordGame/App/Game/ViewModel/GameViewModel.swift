@@ -8,20 +8,25 @@
 import Foundation
 import Combine
 
+enum Attempt {
+    case correct
+    case wrong
+}
+
 final class GameViewModel {
     
-    private let wordsProvider: WordsProvidable
+    private let gameEngine: GameEngineType
     private var cancellables = Set<AnyCancellable>()
     
-    init(wordsProvider: WordsProvidable = WordsProvider()) {
-        self.wordsProvider = wordsProvider
+    init(gameEngine: GameEngineType = GameEngine()) {
+        self.gameEngine = gameEngine
         
-        wordsProvider
-            .wordsPublisher
-            .receive(on: RunLoop.main)
-            .sink(receiveValue: { words in
-                print(words)
-            })
-            .store(in: &cancellables)
+        Publishers.CombineLatest(
+            gameEngine.outputs.word,
+            Just(gameEngine.outputs.score)
+        )
+        .print("gameEngine")
+        .sink { _ in }
+        .store(in: &cancellables)
     }
 }

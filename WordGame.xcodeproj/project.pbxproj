@@ -16,6 +16,9 @@
 		23F6B7282932C26E000C00ED /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B7272932C26E000C00ED /* GameViewModel.swift */; };
 		23F6B72C2932C326000C00ED /* LocalDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B72B2932C326000C00ED /* LocalDataProvider.swift */; };
 		23F6B72E2932C35B000C00ED /* WordsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B72D2932C35B000C00ED /* WordsProvider.swift */; };
+		23F6B734293352A6000C00ED /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B733293352A6000C00ED /* Score.swift */; };
+		23F6B736293352C1000C00ED /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B735293352C1000C00ED /* Rules.swift */; };
+		23F6B7382933530D000C00ED /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B7372933530D000C00ED /* GameEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		23F6B7272932C26E000C00ED /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		23F6B72B2932C326000C00ED /* LocalDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataProvider.swift; sourceTree = "<group>"; };
 		23F6B72D2932C35B000C00ED /* WordsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsProvider.swift; sourceTree = "<group>"; };
+		23F6B733293352A6000C00ED /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		23F6B735293352C1000C00ED /* Rules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
+		23F6B7372933530D000C00ED /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +146,7 @@
 		23F6B7292932C307000C00ED /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				23F6B73229335299000C00ED /* GameEngine */,
 				23F6B72A2932C313000C00ED /* Providers */,
 			);
 			path = Utilities;
@@ -152,6 +159,16 @@
 				23F6B72D2932C35B000C00ED /* WordsProvider.swift */,
 			);
 			path = Providers;
+			sourceTree = "<group>";
+		};
+		23F6B73229335299000C00ED /* GameEngine */ = {
+			isa = PBXGroup;
+			children = (
+				23F6B7372933530D000C00ED /* GameEngine.swift */,
+				23F6B735293352C1000C00ED /* Rules.swift */,
+				23F6B733293352A6000C00ED /* Score.swift */,
+			);
+			path = GameEngine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,11 +242,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F6B734293352A6000C00ED /* Score.swift in Sources */,
+				23F6B736293352C1000C00ED /* Rules.swift in Sources */,
 				23F6B72E2932C35B000C00ED /* WordsProvider.swift in Sources */,
 				23F6B72C2932C326000C00ED /* LocalDataProvider.swift in Sources */,
 				23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */,
 				23F6B7262932C261000C00ED /* GameView.swift in Sources */,
 				23F6B7282932C26E000C00ED /* GameViewModel.swift in Sources */,
+				23F6B7382933530D000C00ED /* GameEngine.swift in Sources */,
 				23F6B7242932C246000C00ED /* Word.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
