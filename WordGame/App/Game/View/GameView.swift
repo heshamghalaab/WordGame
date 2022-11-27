@@ -9,10 +9,21 @@ import SwiftUI
 
 struct GameView: View {
     
-    private let viewModel: GameViewModel
+    struct ViewState {
+        let correctAttemptsCountText: String
+        let wrongAttemptsCountText: String
+        let spanishText: String
+        let englishText: String
+    }
     
-    init(viewModel: GameViewModel = GameViewModel()) {
-        self.viewModel = viewModel
+    enum Action {
+        case attempt(Attempt)
+    }
+    
+    private var viewModelAdapter: ViewModelAdapter<ViewState, Action>
+    
+    init(viewModelAdapter: ViewModelAdapter<ViewState, Action> = GameViewModel().adapter) {
+        self.viewModelAdapter = viewModelAdapter
     }
     
     var body: some View {
@@ -68,5 +79,16 @@ struct GameView: View {
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
+    }
+}
+
+extension GameView.ViewState {
+    static var empty: GameView.ViewState {
+        .init(
+            correctAttemptsCountText: "",
+            wrongAttemptsCountText: "",
+            spanishText: "",
+            englishText: ""
+        )
     }
 }
