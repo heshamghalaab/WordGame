@@ -127,7 +127,6 @@ private extension GameEngine {
     func loadWords(){
         wordsProvider
             .wordsPublisher
-            .receive(on: RunLoop.main)
             .sink(receiveCompletion: { [weak self] _ in
                 self?.loadNextQuestion()
             }, receiveValue: { [weak self] words in
