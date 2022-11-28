@@ -12,6 +12,13 @@
 		236F22A029341AFF00C3A298 /* ObservableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F229F29341AFF00C3A298 /* ObservableViewModelTests.swift */; };
 		236F22A229341C2200C3A298 /* CombineTestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22A129341C2200C3A298 /* CombineTestObserver.swift */; };
 		236F22A52934B25800C3A298 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22A42934B25800C3A298 /* GameEngineTests.swift */; };
+		236F22A829354B2100C3A298 /* LocalDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22A729354B2100C3A298 /* LocalDataProviderTests.swift */; };
+		236F22AB29354B4500C3A298 /* wordsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 236F22AA29354B4400C3A298 /* wordsMock.json */; };
+		236F22AD29354C6D00C3A298 /* wordsMockEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = 236F22AC29354C6D00C3A298 /* wordsMockEmpty.json */; };
+		236F22AF2935731A00C3A298 /* WordsProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22AE2935731A00C3A298 /* WordsProviderTests.swift */; };
+		236F22B32935733A00C3A298 /* WordsProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22B22935733A00C3A298 /* WordsProviderMock.swift */; };
+		236F22B52935737800C3A298 /* Word+wordsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22B42935737800C3A298 /* Word+wordsMock.swift */; };
+		236F22B9293573BC00C3A298 /* LocalDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22B8293573BC00C3A298 /* LocalDataProviderMock.swift */; };
 		23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B70C2932BC1B000C00ED /* WordGameApp.swift */; };
 		23F6B7112932BC1D000C00ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7102932BC1D000C00ED /* Assets.xcassets */; };
 		23F6B7142932BC1D000C00ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7132932BC1D000C00ED /* Preview Assets.xcassets */; };
@@ -49,6 +56,13 @@
 		236F229F29341AFF00C3A298 /* ObservableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModelTests.swift; sourceTree = "<group>"; };
 		236F22A129341C2200C3A298 /* CombineTestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTestObserver.swift; sourceTree = "<group>"; };
 		236F22A42934B25800C3A298 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
+		236F22A729354B2100C3A298 /* LocalDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataProviderTests.swift; sourceTree = "<group>"; };
+		236F22AA29354B4400C3A298 /* wordsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wordsMock.json; sourceTree = "<group>"; };
+		236F22AC29354C6D00C3A298 /* wordsMockEmpty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wordsMockEmpty.json; sourceTree = "<group>"; };
+		236F22AE2935731A00C3A298 /* WordsProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsProviderTests.swift; sourceTree = "<group>"; };
+		236F22B22935733A00C3A298 /* WordsProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsProviderMock.swift; sourceTree = "<group>"; };
+		236F22B42935737800C3A298 /* Word+wordsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+wordsMock.swift"; sourceTree = "<group>"; };
+		236F22B8293573BC00C3A298 /* LocalDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataProviderMock.swift; sourceTree = "<group>"; };
 		23F6B7092932BC1B000C00ED /* WordGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F6B70C2932BC1B000C00ED /* WordGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameApp.swift; sourceTree = "<group>"; };
 		23F6B7102932BC1D000C00ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +105,8 @@
 		236F228F29341A8B00C3A298 /* WordGameTests */ = {
 			isa = PBXGroup;
 			children = (
+				236F22B12935732B00C3A298 /* Mocks */,
+				236F22A929354B2900C3A298 /* Resources */,
 				236F229729341ABD00C3A298 /* Utilities */,
 			);
 			path = WordGameTests;
@@ -99,6 +115,7 @@
 		236F229729341ABD00C3A298 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				236F22A629354B0900C3A298 /* Providers */,
 				236F229829341AC300C3A298 /* Core */,
 				236F22A32934B23500C3A298 /* GameEngine */,
 			);
@@ -121,6 +138,34 @@
 				236F22A42934B25800C3A298 /* GameEngineTests.swift */,
 			);
 			path = GameEngine;
+			sourceTree = "<group>";
+		};
+		236F22A629354B0900C3A298 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				236F22A729354B2100C3A298 /* LocalDataProviderTests.swift */,
+				236F22AE2935731A00C3A298 /* WordsProviderTests.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		236F22A929354B2900C3A298 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				236F22AA29354B4400C3A298 /* wordsMock.json */,
+				236F22AC29354C6D00C3A298 /* wordsMockEmpty.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		236F22B12935732B00C3A298 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				236F22B8293573BC00C3A298 /* LocalDataProviderMock.swift */,
+				236F22B22935733A00C3A298 /* WordsProviderMock.swift */,
+				236F22B42935737800C3A298 /* Word+wordsMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		23F6B7002932BC1B000C00ED = {
@@ -357,6 +402,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				236F22AB29354B4500C3A298 /* wordsMock.json in Resources */,
+				236F22AD29354C6D00C3A298 /* wordsMockEmpty.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,8 +426,13 @@
 			files = (
 				236F229A29341AD300C3A298 /* ViewModelAdapterTests.swift in Sources */,
 				236F22A229341C2200C3A298 /* CombineTestObserver.swift in Sources */,
+				236F22B9293573BC00C3A298 /* LocalDataProviderMock.swift in Sources */,
+				236F22AF2935731A00C3A298 /* WordsProviderTests.swift in Sources */,
 				236F22A029341AFF00C3A298 /* ObservableViewModelTests.swift in Sources */,
+				236F22B32935733A00C3A298 /* WordsProviderMock.swift in Sources */,
+				236F22A829354B2100C3A298 /* LocalDataProviderTests.swift in Sources */,
 				236F22A52934B25800C3A298 /* GameEngineTests.swift in Sources */,
+				236F22B52935737800C3A298 /* Word+wordsMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,158 @@
+[
+    {
+        "text_eng":"farm",
+        "text_spa":"granja"
+    },
+    {
+        "text_eng":"field",
+        "text_spa":"campo"
+    },
+    {
+        "text_eng":"pond",
+        "text_spa":"laguna"
+    },
+    {
+        "text_eng":"forest",
+        "text_spa":"bosque"
+    },
+    {
+        "text_eng":"hedge",
+        "text_spa":"seto"
+    },
+    {
+        "text_eng":"rainforest",
+        "text_spa":"selva lluviosa"
+    },
+    {
+        "text_eng":"tropics",
+        "text_spa":"zona tropical"
+    },
+    {
+        "text_eng":"vegetation",
+        "text_spa":"vegetación"
+    },
+    {
+        "text_eng":"branch",
+        "text_spa":"rama"
+    },
+    {
+        "text_eng":"parasite",
+        "text_spa":"parásito"
+    },
+    {
+        "text_eng":"species",
+        "text_spa":"especie"
+    },
+    {
+        "text_eng":"jungle",
+        "text_spa":"jungla"
+    },
+    {
+        "text_eng":"equator",
+        "text_spa":"ecuador"
+    },
+    {
+        "text_eng":"dense",
+        "text_spa":"espeso"
+    },
+    {
+        "text_eng":"humid",
+        "text_spa":"húmedo"
+    },
+    {
+        "text_eng":"rainfall",
+        "text_spa":"precipitación "
+    },
+    {
+        "text_eng":"forest floor",
+        "text_spa":"suelo del bosque"
+    },
+    {
+        "text_eng":"swamp",
+        "text_spa":"zona pantanosa"
+    },
+    {
+        "text_eng":"building",
+        "text_spa":"edificio"
+    },
+    {
+        "text_eng":"house",
+        "text_spa":"casa"
+    },
+    {
+        "text_eng":"station",
+        "text_spa":"estación"
+    },
+    {
+        "text_eng":"castle",
+        "text_spa":"castillo"
+    },
+    {
+        "text_eng":"tower block",
+        "text_spa":"edificio alto"
+    },
+    {
+        "text_eng":"hospital",
+        "text_spa":"hospital"
+    },
+    {
+        "text_eng":"town hall",
+        "text_spa":"ayuntamiento"
+    },
+    {
+        "text_eng":"church",
+        "text_spa":"iglesia"
+    },
+    {
+        "text_eng":"factory",
+        "text_spa":"fábrica"
+    },
+    {
+        "text_eng":"(to) build",
+        "text_spa":"construir"
+    },
+    {
+        "text_eng":"warehouse",
+        "text_spa":"almacén"
+    },
+    {
+        "text_eng":"fire station",
+        "text_spa":"puesto de bomberos"
+    },
+    {
+        "text_eng":"emergency",
+        "text_spa":"urgencia"
+    },
+    {
+        "text_eng":"problem",
+        "text_spa":"problema"
+    },
+    {
+        "text_eng":"ambulance",
+        "text_spa":"ambulancia"
+    },
+    {
+        "text_eng":"fire brigade",
+        "text_spa":"cuerpo de bomberos"
+    },
+    {
+        "text_eng":"fire",
+        "text_spa":"incendio"
+    },
+    {
+        "text_eng":"firefighter",
+        "text_spa":"bombero"
+    },
+    {
+        "text_eng":"dangerous",
+        "text_spa":"peligroso"
+    },
+    {
+        "text_eng":"ladder",
+        "text_spa":"escalera"
+    },
+    {
+        "text_eng":"accident",
+        "text_spa":"accidente"
+    }
+]
