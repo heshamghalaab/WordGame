@@ -193,9 +193,7 @@ private extension GameEngine {
             .sink { [weak self] counter in
                 guard let self = self else { return }
                 self.counter.value = counter
-                print("Counter: \(counter), Value: \(self.counter.value)")
                 if counter >= self.rules.timeLimit {
-                    print("Should markAttemptAsWrong")
                     self.markAttemptAsWrong()
                 }
             }
