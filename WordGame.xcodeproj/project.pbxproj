@@ -11,6 +11,7 @@
 		236F229A29341AD300C3A298 /* ViewModelAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F229929341AD300C3A298 /* ViewModelAdapterTests.swift */; };
 		236F22A029341AFF00C3A298 /* ObservableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F229F29341AFF00C3A298 /* ObservableViewModelTests.swift */; };
 		236F22A229341C2200C3A298 /* CombineTestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22A129341C2200C3A298 /* CombineTestObserver.swift */; };
+		236F22A52934B25800C3A298 /* GameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22A42934B25800C3A298 /* GameEngineTests.swift */; };
 		23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B70C2932BC1B000C00ED /* WordGameApp.swift */; };
 		23F6B7112932BC1D000C00ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7102932BC1D000C00ED /* Assets.xcassets */; };
 		23F6B7142932BC1D000C00ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7132932BC1D000C00ED /* Preview Assets.xcassets */; };
@@ -28,7 +29,6 @@
 		23F6B74229336292000C00ED /* CombineSchedulers in Frameworks */ = {isa = PBXBuildFile; productRef = 23F6B74129336292000C00ED /* CombineSchedulers */; };
 		23F6B744293362BE000C00ED /* ObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B743293362BE000C00ED /* ObservableViewModel.swift */; };
 		23F6B747293362EA000C00ED /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B746293362EA000C00ED /* Combine+Extensions.swift */; };
-		23F6B74929336B3C000C00ED /* TimerPublisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B74829336B3C000C00ED /* TimerPublisher+Extension.swift */; };
 		23F6B74B29337730000C00ED /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B74A29337730000C00ED /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +48,7 @@
 		236F229929341AD300C3A298 /* ViewModelAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAdapterTests.swift; sourceTree = "<group>"; };
 		236F229F29341AFF00C3A298 /* ObservableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModelTests.swift; sourceTree = "<group>"; };
 		236F22A129341C2200C3A298 /* CombineTestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTestObserver.swift; sourceTree = "<group>"; };
+		236F22A42934B25800C3A298 /* GameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineTests.swift; sourceTree = "<group>"; };
 		23F6B7092932BC1B000C00ED /* WordGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F6B70C2932BC1B000C00ED /* WordGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameApp.swift; sourceTree = "<group>"; };
 		23F6B7102932BC1D000C00ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		23F6B73C29336111000C00ED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		23F6B743293362BE000C00ED /* ObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModel.swift; sourceTree = "<group>"; };
 		23F6B746293362EA000C00ED /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
-		23F6B74829336B3C000C00ED /* TimerPublisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerPublisher+Extension.swift"; sourceTree = "<group>"; };
 		23F6B74A29337730000C00ED /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				236F229829341AC300C3A298 /* Core */,
+				236F22A32934B23500C3A298 /* GameEngine */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -112,6 +113,14 @@
 				236F22A129341C2200C3A298 /* CombineTestObserver.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		236F22A32934B23500C3A298 /* GameEngine */ = {
+			isa = PBXGroup;
+			children = (
+				236F22A42934B25800C3A298 /* GameEngineTests.swift */,
+			);
+			path = GameEngine;
 			sourceTree = "<group>";
 		};
 		23F6B7002932BC1B000C00ED = {
@@ -256,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				23F6B746293362EA000C00ED /* Combine+Extensions.swift */,
-				23F6B74829336B3C000C00ED /* TimerPublisher+Extension.swift */,
 				236F22882933B58F00C3A298 /* Combine+CombineLatest.swift */,
 			);
 			path = Extensions;
@@ -372,6 +380,7 @@
 				236F229A29341AD300C3A298 /* ViewModelAdapterTests.swift in Sources */,
 				236F22A229341C2200C3A298 /* CombineTestObserver.swift in Sources */,
 				236F22A029341AFF00C3A298 /* ObservableViewModelTests.swift in Sources */,
+				236F22A52934B25800C3A298 /* GameEngineTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +399,6 @@
 				236F22892933B58F00C3A298 /* Combine+CombineLatest.swift in Sources */,
 				23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */,
 				23F6B7262932C261000C00ED /* GameView.swift in Sources */,
-				23F6B74929336B3C000C00ED /* TimerPublisher+Extension.swift in Sources */,
 				23F6B7282932C26E000C00ED /* GameViewModel.swift in Sources */,
 				23F6B7382933530D000C00ED /* GameEngine.swift in Sources */,
 				23F6B74B29337730000C00ED /* CircularProgressView.swift in Sources */,

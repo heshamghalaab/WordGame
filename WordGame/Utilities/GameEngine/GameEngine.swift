@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CombineSchedulers
 
 protocol GameEngineInputs {
     func startGame()
@@ -29,6 +30,9 @@ protocol GameEngineOutputs {
     
     /// A game ended Flag will be triggered when one of the rules is not matched
     var gameEnded: CurrentValueSubject<Bool, Never> { get }
+    
+    /// The Current game Data
+    var game: GameEngine.Game { get }
 }
 
 protocol GameEngineType {
@@ -38,7 +42,7 @@ protocol GameEngineType {
 
 final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     
-    private struct Game {
+    struct Game {
         struct Current {
             var words: [Word] = []
             var attempt: Attempt = .correct
@@ -52,19 +56,20 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     var outputs: GameEngineOutputs { self }
     
     private let wordsProvider: WordsProvidable
-    private var game: Game = Game()
-    private let timer: TimerType
+    private let timerSchedular: AnySchedulerOf<DispatchQueue>
     private var cancellables = Set<AnyCancellable>()
     private var timerCancellable: AnyCancellable?
     
     init(
         wordsProvider: WordsProvidable = WordsProvider(),
+        game: Game = Game(),
         rules: Rules = Rules(),
-        timer: TimerType = Timer.publish(every: 0.1, on: .main, in: .default)
+        timerSchedular: AnySchedulerOf<DispatchQueue> = DispatchQueue.main.eraseToAnyScheduler()
     ) {
         self.wordsProvider = wordsProvider
+        self.game = game
         self.rules = rules
-        self.timer = timer
+        self.timerSchedular = timerSchedular
         self.startGame()
     }
     
@@ -75,6 +80,7 @@ final class GameEngine: GameEngineType, GameEngineInputs, GameEngineOutputs {
     var rules: Rules
     var counter = CurrentValueSubject<Double, Never>(0)
     var gameEnded = CurrentValueSubject<Bool, Never>(false)
+    var game: Game
     
     // MARK: Inputs
     
@@ -118,7 +124,7 @@ private extension GameEngine {
     
     /// Will Chech for the Rules in order to know if we should to proceed or not.
     func shouldProceedToNextQuestion() -> Bool {
-        return game.current.wordIndex < rules.maximumNumberOfQuestion
+        return game.current.wordIndex < rules.maximumNumberOfQuestions
         && game.current.wordIndex < game.current.words.count
         && score.wrongAttempts < rules.maximumNumberOfWrongAttempts
     }
@@ -159,9 +165,10 @@ private extension GameEngine {
     /// This Variable is called only of the current attempt is wrong.
     var randomSpanishIndex: Int {
         // As We need to exclude the current word index So we will create two ranges arround that index
-        let range = 0...game.current.wordIndex
-        let anotherRange = game.current.wordIndex..<game.current.words.count
-        // Then we will choose a random rande from the two ranges to select the random Int from them.
+        let range = game.current.wordIndex..<game.current.words.count
+        if game.current.wordIndex == 0 { return Int.random(in: range) }
+        let anotherRange = 0..<game.current.wordIndex
+        // Then we will choose a random range from the two ranges to select the random Int from them.
         return Bool.random() ? Int.random(in: range) : Int.random(in: anotherRange)
     }
     
@@ -180,13 +187,15 @@ private extension GameEngine {
     
     /// Start Counting with 1 second interval, if the counter exceeds the time limit we will mark it as wrong answer.
     func startCounting() {
-        timerCancellable = timer
-            .timerPublisher()
+        timerCancellable = timerPublisher
+            .autoconnect()
             .scan(0, { counter, _ in counter + 0.1 })
             .sink { [weak self] counter in
                 guard let self = self else { return }
                 self.counter.value = counter
+                print("Counter: \(counter), Value: \(self.counter.value)")
                 if counter >= self.rules.timeLimit {
+                    print("Should markAttemptAsWrong")
                     self.markAttemptAsWrong()
                 }
             }
@@ -195,12 +204,15 @@ private extension GameEngine {
     /// Force Attempt to be wrong so we will toggle the value of the current attempt and acting like the user choose wrong attempt.
     func markAttemptAsWrong(){
         stopCounting()
-        let attempt: Attempt = game.current.attempt == .correct ? .wrong : .correct
-        self.gamerDidChoose(attempt: attempt)
+        self.gamerDidChoose(attempt: game.current.attempt.toggle)
     }
     
     /// Stop Counting by cancelling the timer cancellable.
     func stopCounting() {
         timerCancellable?.cancel()
+    }
+    
+    var timerPublisher: Publishers.Timer<AnySchedulerOf<DispatchQueue>> {
+        return Publishers.Timer(every: .seconds(0.1), scheduler: timerSchedular)
     }
 }

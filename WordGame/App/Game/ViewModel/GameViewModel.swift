@@ -13,6 +13,15 @@ enum Attempt {
     case wrong
 }
 
+extension Attempt {
+    var toggle: Attempt {
+        switch self {
+        case .correct: return .wrong
+        case .wrong: return .correct
+        }
+    }
+}
+
 final class GameViewModel: ViewModel {
     
     private let gameEngine: GameEngineType
