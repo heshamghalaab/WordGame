@@ -14,7 +14,7 @@ struct WordsProviderMock: WordsProvidable {
     
     var words: [Word]
 
-    init(words: [Word]) {
+    init(words: [Word] = Word.wordsMock) {
         self.words = words
     }
     

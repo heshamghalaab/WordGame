@@ -19,6 +19,8 @@
 		236F22B32935733A00C3A298 /* WordsProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22B22935733A00C3A298 /* WordsProviderMock.swift */; };
 		236F22B52935737800C3A298 /* Word+wordsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22B42935737800C3A298 /* Word+wordsMock.swift */; };
 		236F22B9293573BC00C3A298 /* LocalDataProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22B8293573BC00C3A298 /* LocalDataProviderMock.swift */; };
+		236F22BC29357B8500C3A298 /* GameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22BB29357B8500C3A298 /* GameViewModelTests.swift */; };
+		236F22BE2935840B00C3A298 /* GameEngineMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236F22BD2935840A00C3A298 /* GameEngineMock.swift */; };
 		23F6B70D2932BC1B000C00ED /* WordGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F6B70C2932BC1B000C00ED /* WordGameApp.swift */; };
 		23F6B7112932BC1D000C00ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7102932BC1D000C00ED /* Assets.xcassets */; };
 		23F6B7142932BC1D000C00ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F6B7132932BC1D000C00ED /* Preview Assets.xcassets */; };
@@ -63,6 +65,8 @@
 		236F22B22935733A00C3A298 /* WordsProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsProviderMock.swift; sourceTree = "<group>"; };
 		236F22B42935737800C3A298 /* Word+wordsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+wordsMock.swift"; sourceTree = "<group>"; };
 		236F22B8293573BC00C3A298 /* LocalDataProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataProviderMock.swift; sourceTree = "<group>"; };
+		236F22BB29357B8500C3A298 /* GameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModelTests.swift; sourceTree = "<group>"; };
+		236F22BD2935840A00C3A298 /* GameEngineMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineMock.swift; sourceTree = "<group>"; };
 		23F6B7092932BC1B000C00ED /* WordGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F6B70C2932BC1B000C00ED /* WordGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameApp.swift; sourceTree = "<group>"; };
 		23F6B7102932BC1D000C00ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				236F22A629354B0900C3A298 /* Providers */,
 				236F229829341AC300C3A298 /* Core */,
 				236F22A32934B23500C3A298 /* GameEngine */,
+				236F22BA29357B6F00C3A298 /* ViewModels */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -164,8 +169,17 @@
 				236F22B8293573BC00C3A298 /* LocalDataProviderMock.swift */,
 				236F22B22935733A00C3A298 /* WordsProviderMock.swift */,
 				236F22B42935737800C3A298 /* Word+wordsMock.swift */,
+				236F22BD2935840A00C3A298 /* GameEngineMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		236F22BA29357B6F00C3A298 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				236F22BB29357B8500C3A298 /* GameViewModelTests.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		23F6B7002932BC1B000C00ED = {
@@ -424,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				236F22BC29357B8500C3A298 /* GameViewModelTests.swift in Sources */,
 				236F229A29341AD300C3A298 /* ViewModelAdapterTests.swift in Sources */,
 				236F22A229341C2200C3A298 /* CombineTestObserver.swift in Sources */,
 				236F22B9293573BC00C3A298 /* LocalDataProviderMock.swift in Sources */,
@@ -433,6 +448,7 @@
 				236F22A829354B2100C3A298 /* LocalDataProviderTests.swift in Sources */,
 				236F22A52934B25800C3A298 /* GameEngineTests.swift in Sources */,
 				236F22B52935737800C3A298 /* Word+wordsMock.swift in Sources */,
+				236F22BE2935840B00C3A298 /* GameEngineMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
