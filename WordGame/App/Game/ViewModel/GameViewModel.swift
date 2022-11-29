@@ -13,6 +13,15 @@ enum Attempt {
     case wrong
 }
 
+extension Attempt {
+    var toggle: Attempt {
+        switch self {
+        case .correct: return .wrong
+        case .wrong: return .correct
+        }
+    }
+}
+
 final class GameViewModel: ViewModel {
     
     private let gameEngine: GameEngineType
@@ -30,8 +39,11 @@ final class GameViewModel: ViewModel {
     }
     
     private var viewStatePublisher: AnyPublisher<GameView.ViewState, Never> {
-        Publishers.CombineLatest(
+        Publishers.CombineLatest5(
             gameEngine.outputs.word,
+            gameEngine.outputs.counter,
+            gameEngine.outputs.gameEnded,
+            Just(gameEngine.outputs.rules),
             Just(gameEngine.outputs.score)
         )
         .map(toViewState)
@@ -42,18 +54,25 @@ final class GameViewModel: ViewModel {
         switch action {
         case .attempt(let attempt):
             gameEngine.inputs.gamerDidChoose(attempt: attempt)
+        case .restartGame:
+            gameEngine.inputs.restartGame()
+        case .closeApp:
+            exit(0)
         }
     }
 }
 
 extension GameViewModel {
-    func toViewState(word: Word?, score: Score) -> GameView.ViewState {
-        guard let word = word else { return .empty }
+    func toViewState(word: Word?, counter: Double, gameEnded: Bool, rules: Rules, score: Score) -> GameView.ViewState {
+        let progress = counter / rules.timeLimit
         return .init(
             correctAttemptsCountText: "Correct attempts: \(score.correctAttempts)",
             wrongAttemptsCountText: "Wrong attempts: \(score.wrongAttempts)",
-            spanishText: word.textSpanish,
-            englishText: word.textEnglish
+            spanishText: word?.textSpanish ?? "",
+            englishText: word?.textEnglish ?? "",
+            counter: counter,
+            animationProgress: progress,
+            showGameEndedDialogue: gameEnded
         )
     }
 }

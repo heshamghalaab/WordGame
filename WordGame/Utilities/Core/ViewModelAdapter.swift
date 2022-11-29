@@ -31,3 +31,5 @@ struct ViewModelAdapter<State, Action> {
             .store(in: &cancellables)
     }
 }
+
+func neverAction<A>(_: Never) -> A { /* Never */ }

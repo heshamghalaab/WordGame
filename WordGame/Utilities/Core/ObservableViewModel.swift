@@ -18,12 +18,12 @@ final class ObservableViewModel<ViewState, Action>: ObservableObject {
     
     init(
         viewModelAdapter: ViewModelAdapter<ViewState, Action>,
-        schedular: AnySchedulerOf<DispatchQueue> = DispatchQueue.main.eraseToAnyScheduler()
+        scheduler: AnySchedulerOf<DispatchQueue> = DispatchQueue.main.eraseToAnyScheduler()
     ) {
         self.viewModelAdapter = viewModelAdapter
         self.viewState = viewModelAdapter.state
         viewModelAdapter.query
-            .receive(on: schedular)
+            .receive(on: scheduler)
             .assignNoRetain(to: \.viewState, on: self)
             .store(in: &cancellables)
     }
